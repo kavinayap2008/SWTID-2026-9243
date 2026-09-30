@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+FitBuddy Admin
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="page">
+
+
+    <span class="eyebrow">
+
+        Admin Dashboard
+
+    </span>
+
+
+    <h1>
+
+        All Users &
+        Workout Plans
+
+    </h1>
+
+
+    <p class="muted">
+
+        Review each user's profile,
+        original workout plan and
+        AI-refined workout plan.
+
+    </p>
+
+
+    <div class="table-wrap">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Profile
+                    </th>
+
+                    <th>
+                        Original Plan
+                    </th>
+
+                    <th>
+                        Updated Plan
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                {% for user in users %}
+
+
+                <tr>
+
+
+                    <td>
+
+                        {{ user.id }}
+
+                    </td>
+
+
+                    <td>
+
+                        <b>
+                            {{ user.username }}
+                        </b>
+
+                    </td>
+
+
+                    <td>
+
+                        Age:
+                        {{ user.age }}
+
+                        <br>
+
+                        Weight:
+                        {{ user.weight }} kg
+
+                        <br>
+
+                        Goal:
+                        {{ user.goal }}
+
+                        <br>
+
+                        Intensity:
+                        {{ user.intensity|title }}
+
+                    </td>
+
+
+                    <td>
+
+                        <pre>{{
+                            user.plan.original_plan
+                            if user.plan
+                            else "—"
+                        }}</pre>
+
+                    </td>
+
+
+                    <td>
+
+                        <pre>{{
+                            user.plan.updated_plan
+                            if user.plan
+                            and user.plan.updated_plan
+                            else "Not updated"
+                        }}</pre>
+
+                    </td>
+
+
+                    <td>
+
+
+                        <form
+                            method="post"
+                            action="/delete-user/{{ user.id }}"
+                            onsubmit="
+                                return confirm(
+                                    'Delete this user and plan?'
+                                )
+                            "
+                        >
+
+
+                            <button
+                                class="danger"
+                                type="submit"
+                            >
+
+                                Delete
+
+                            </button>
+
+
+                        </form>
+
+
+                    </td>
+
+
+                </tr>
+
+
+                {% else %}
+
+
+                <tr>
+
+                    <td colspan="6">
+
+                        No users have been
+                        registered yet.
+
+                    </td>
+
+                </tr>
+
+
+                {% endfor %}
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

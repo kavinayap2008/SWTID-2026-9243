@@ -1,0 +1,745 @@
+/* =========================================================
+   FITBUDDY GLOBAL VARIABLES
+========================================================= */
+
+:root {
+
+    --bg: #07130f;
+
+    --panel: #10231b;
+
+    --panel2: #163126;
+
+    --text: #f4fff9;
+
+    --muted: #b7c9c0;
+
+    --accent: #63e6a8;
+
+    --line: #29483b;
+
+    --danger: #ff7b7b;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 0,
+            #17392b 0,
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        18px
+        max(5vw, 24px);
+
+    border-bottom:
+        1px solid var(--line);
+
+    background:
+        rgba(7, 19, 15, 0.90);
+
+    position: sticky;
+
+    top: 0;
+
+    backdrop-filter:
+        blur(12px);
+
+    z-index: 5;
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+.brand {
+
+    font-size: 1.25rem;
+
+    font-weight: 850;
+
+    color: var(--accent);
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 20px;
+}
+
+
+nav a {
+
+    color: var(--muted);
+
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+    max-width: 1280px;
+
+    margin: auto;
+
+    padding:
+        50px
+        max(5vw, 24px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        0.9fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    min-height: 70vh;
+}
+
+
+.hero h1,
+.page h1 {
+
+    font-size:
+        clamp(
+            2.4rem,
+            6vw,
+            5rem
+        );
+
+    line-height: 0.98;
+
+    margin: 0.25em 0;
+}
+
+
+.hero p {
+
+    font-size: 1.15rem;
+
+    color: var(--muted);
+
+    max-width: 650px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow {
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.14em;
+
+    font-weight: 800;
+
+    font-size: 0.78rem;
+
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+
+    background:
+
+        linear-gradient(
+            180deg,
+            var(--panel2),
+            var(--panel)
+        );
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 20px;
+
+    padding: 26px;
+
+    box-shadow:
+        0 18px 60px
+        rgba(0, 0, 0, 0.33);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form {
+
+    display: grid;
+
+    gap: 16px;
+}
+
+
+.form h2 {
+
+    margin:
+        0
+        0
+        5px;
+}
+
+
+.form label {
+
+    display: grid;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+
+.grid2 {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 12px;
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    background: #07130f;
+
+    border:
+        1px solid #355b4a;
+
+    color: var(--text);
+
+    padding:
+        13px
+        14px;
+
+    border-radius: 10px;
+
+    font: inherit;
+
+    outline: none;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(99, 230, 168, 0.15);
+}
+
+
+textarea {
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button,
+.button {
+
+    border: 0;
+
+    background:
+        var(--accent);
+
+    color: #052016;
+
+    font-weight: 850;
+
+    padding:
+        13px
+        18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+
+button:hover,
+.button:hover {
+
+    transform:
+        translateY(-1px);
+
+    opacity: 0.92;
+}
+
+
+.secondary {
+
+    background:
+        transparent;
+
+    color:
+        var(--text);
+
+    border:
+        1px solid
+        var(--line);
+}
+
+
+.danger {
+
+    background:
+        var(--danger);
+
+    color:
+        #2b0808;
+}
+
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.alert {
+
+    padding: 12px;
+
+    background:
+        #5a1d1d;
+
+    border-radius:
+        10px;
+}
+
+
+.success {
+
+    padding:
+        14px
+        18px;
+
+    background:
+        #174c35;
+
+    border:
+        1px solid
+        #2f8a63;
+
+    border-radius:
+        12px;
+
+    margin:
+        18px 0;
+}
+
+
+/* =========================================================
+   RESULT TITLE
+========================================================= */
+
+.title-row {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content:
+        space-between;
+
+    gap: 20px;
+}
+
+
+.title-row h1 {
+
+    font-size:
+        clamp(
+            2.2rem,
+            5vw,
+            4rem
+        );
+}
+
+
+/* =========================================================
+   USER PROFILE
+========================================================= */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin:
+        22px 0;
+}
+
+
+.profile-grid > div {
+
+    background:
+        #0d1d17;
+
+    border:
+        1px solid
+        var(--line);
+
+    padding:
+        15px;
+
+    border-radius:
+        12px;
+
+    display: grid;
+
+    gap: 4px;
+}
+
+
+.profile-grid b {
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.8rem;
+
+    text-transform:
+        uppercase;
+}
+
+
+.wide {
+
+    grid-column:
+        span 4;
+}
+
+
+/* =========================================================
+   WORKOUT CONTENT
+========================================================= */
+
+.content-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr;
+
+    gap: 22px;
+
+    align-items:
+        start;
+}
+
+
+.content-grid aside {
+
+    display: grid;
+
+    gap: 22px;
+}
+
+
+.tip p {
+
+    line-height:
+        1.65;
+}
+
+
+pre {
+
+    white-space:
+        pre-wrap;
+
+    word-break:
+        break-word;
+
+    font:
+        inherit;
+
+    line-height:
+        1.6;
+
+    margin: 0;
+
+    color:
+        #e9fff3;
+}
+
+
+/* =========================================================
+   ADMIN TABLE
+========================================================= */
+
+.table-wrap {
+
+    overflow: auto;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        16px;
+
+    margin-top:
+        24px;
+}
+
+
+table {
+
+    border-collapse:
+        collapse;
+
+    width: 100%;
+
+    min-width:
+        1100px;
+
+    background:
+        #0d1d17;
+}
+
+
+th,
+td {
+
+    padding:
+        14px;
+
+    vertical-align:
+        top;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    text-align:
+        left;
+}
+
+
+th {
+
+    background:
+        #163126;
+
+    color:
+        var(--accent);
+}
+
+
+td pre {
+
+    max-height:
+        360px;
+
+    overflow:
+        auto;
+
+    min-width:
+        280px;
+
+    font-size:
+        0.86rem;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.muted,
+footer {
+
+    color:
+        var(--muted);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align:
+        center;
+
+    padding:
+        30px;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    font-size:
+        0.85rem;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 850px
+) {
+
+    .hero,
+    .content-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .hero {
+
+        gap: 28px;
+    }
+
+
+    .profile-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .wide {
+
+        grid-column:
+            span 2;
+    }
+
+
+    nav {
+
+        gap: 10px;
+
+        font-size:
+            0.85rem;
+    }
+
+
+    .title-row {
+
+        align-items:
+            start;
+
+        flex-direction:
+            column;
+    }
+
+}

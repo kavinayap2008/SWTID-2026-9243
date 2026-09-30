@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Your FitBuddy Plan
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="page">
+
+
+    <!-- PAGE TITLE -->
+
+    <div class="title-row">
+
+
+        <div>
+
+            <span class="eyebrow">
+
+                {% if updated %}
+
+                    Plan Updated
+
+                {% else %}
+
+                    Personalized Plan
+
+                {% endif %}
+
+            </span>
+
+
+            <h1>
+
+                {{ user.username }}'s
+                Workout Plan
+
+            </h1>
+
+        </div>
+
+
+        <a
+            class="button secondary"
+            href="/"
+        >
+
+            Create New Plan
+
+        </a>
+
+
+    </div>
+
+
+    <!-- UPDATE SUCCESS -->
+
+    {% if updated %}
+
+    <div class="success">
+
+        ✓ Your plan has been updated
+        based on your feedback.
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- USER INFORMATION -->
+
+    <div class="profile-grid">
+
+
+        <div>
+
+            <b>User ID</b>
+
+            <span>
+
+                {{
+                    user.user_id
+                    if user.user_id is defined
+                    else user.id
+                }}
+
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>Age</b>
+
+            <span>
+                {{ user.age }}
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>Weight</b>
+
+            <span>
+                {{ user.weight }} kg
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>Intensity</b>
+
+            <span>
+                {{ user.intensity|title }}
+            </span>
+
+        </div>
+
+
+        <div class="wide">
+
+            <b>Fitness Goal</b>
+
+            <span>
+                {{ user.goal }}
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="content-grid">
+
+
+        <!-- WORKOUT -->
+
+        <article class="card">
+
+            <h2>
+
+                🏋️ 7-Day Workout Plan
+
+            </h2>
+
+
+            <pre>{{ workout_plan }}</pre>
+
+        </article>
+
+
+        <!-- RIGHT SIDE -->
+
+        <aside>
+
+
+            <!-- NUTRITION -->
+
+            <div class="card tip">
+
+                <h2>
+
+                    💡 Nutrition /
+                    Recovery Tip
+
+                </h2>
+
+
+                <p>
+
+                    {{ nutrition_tip }}
+
+                </p>
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <form
+                class="card form"
+                method="post"
+                action="/submit-feedback"
+            >
+
+
+                <h2>
+
+                    Refine This Plan
+
+                </h2>
+
+
+                <input
+                    type="hidden"
+                    name="user_id"
+                    value="{{
+                        user.user_id
+                        if user.user_id is defined
+                        else user.id
+                    }}"
+                >
+
+
+                <label>
+
+                    Your Feedback
+
+
+                    <textarea
+                        name="feedback"
+                        required
+                        minlength="3"
+                        rows="6"
+                        placeholder="Example: Add yoga and one more recovery day"
+                    ></textarea>
+
+                </label>
+
+
+                <button type="submit">
+
+                    Update Plan with AI
+
+                </button>
+
+
+            </form>
+
+
+        </aside>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}
